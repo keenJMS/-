@@ -143,6 +143,69 @@ def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
     pass
 
 def test():
+    def test(model, queryloader, galleryloader, use_gpu, ranks=[1, 5, 10, 20]):
+        batch_time = AverageMeter()
+
+        model.eval()
+
+        with torch.no_grad():
+            qf, q_pids, q_camids = [], [], []
+            for batch_idx, (imgs, pids, camids) in enumerate(queryloader):
+                if use_gpu: imgs = imgs.cuda()
+
+                end = time.time()
+                features = model(imgs)
+                batch_time.update(time.time() - end)
+
+                features = features.data.cpu()
+                qf.append(features)
+                q_pids.extend(pids)
+                q_camids.extend(camids)
+            qf = torch.cat(qf, 0)
+            q_pids = np.asarray(q_pids)
+            q_camids = np.asarray(q_camids)
+
+            print("Extracted features for query set, obtained {}-by-{} matrix".format(qf.size(0), qf.size(1)))
+
+            gf, g_pids, g_camids = [], [], []
+            for batch_idx, (imgs, pids, camids) in enumerate(galleryloader):
+                if use_gpu: imgs = imgs.cuda()
+
+                end = time.time()
+                features = model(imgs)
+                batch_time.update(time.time() - end)
+
+                features = features.data.cpu()
+                gf.append(features)
+                g_pids.extend(pids)
+                g_camids.extend(camids)
+            gf = torch.cat(gf, 0)
+            g_pids = np.asarray(g_pids)
+            g_camids = np.asarray(g_camids)
+
+            print("Extracted features for gallery set, obtained {}-by-{} matrix".format(gf.size(0), gf.size(1)))
+
+        print("==> BatchTime(s)/BatchSize(img): {:.3f}/{}".format(batch_time.avg, args.test_batch))
+
+        m, n = qf.size(0), gf.size(0)
+        distmat = torch.pow(qf, 2).sum(dim=1, keepdim=True).expand(m, n) + \
+                  torch.pow(gf, 2).sum(dim=1, keepdim=True).expand(n, m).t()
+        distmat.addmm_(1, -2, qf, gf.t())
+        distmat = distmat.numpy()
+
+        print("Computing CMC and mAP")
+        cmc, mAP = evaluate(distmat, q_pids, g_pids, q_camids, g_camids, use_metric_cuhk03=args.use_metric_cuhk03)
+
+        print("Results ----------")
+        print("mAP: {:.1%}".format(mAP))
+        print("CMC curve")
+        for r in ranks:
+            print("Rank-{:<3}: {:.1%}".format(r, cmc[r - 1]))
+        print("------------------")
+
+        return cmc[0]
+    pass
+def evaluate():
     pass
 
 

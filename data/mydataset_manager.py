@@ -58,6 +58,6 @@ def print_file_name(file_dir):
         print(dirs) #当前路径下所有子目录
         print(files) #当前路径下所有非目录子文件
 if __name__=='__main__':
-    market=Market1501('D:\\engineer\ReIDDataset\Market')
-    train_set,num_pids,num_imgs=market._process_dir(market.train_dir,relabel=True)
+    market=Market1501('/root/dataset/Market')
+
     pass

@@ -50,7 +50,7 @@ def read_image(img_path):
 
 if __name__=='__main__':
     from mydataset_manager import Market1501
-    market=Market1501(root='D:\\engineer\ReIDDataset\Market')
+    market=Market1501(root='/root/dataset/Market')
     train=market.train
     transform_train = transforms.Compose(data_transform['train'])
     train_loader=ImageDataset(train,transformer=transform_train)
@@ -63,7 +63,7 @@ if __name__=='__main__':
     # ])
 
     for batch,(img,pid,cid)in enumerate(train_loader):
-        print(img,pid,cid)
+        print(pid,cid)
         #Image._show(img_path)
         plt.figure(12)
         plt.subplot(121)

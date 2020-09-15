@@ -23,6 +23,6 @@ class ResNet50(nn.Module):
 
 if __name__=='__main__':
     model=ResNet50(num_classes=751,training=True)
-    input=torch.rand(32,3,256,128)
+    input=torch.rand(1,3,256,128)
     output=model(input)
     pass

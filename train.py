@@ -126,11 +126,43 @@ def main():
     best_epoch = 0
     print("==> Start training")
 
-    for epoch in range(start_epoch,train_epoch):
+    # for epoch in range(start_epoch,train_epoch):
+    #     start_train_time = time.time()
+    #     rank1 = test(model, query_loader, gallery_loader, use_gpu)
+    #     train(epoch,model,criterion,optimizer,train_loader,use_gpu)
+    #     if config['step_size']: scheduler.step()
+    for epoch in range(start_epoch, args.max_epoch):
         start_train_time = time.time()
-        rank1 = test(model, query_loader, gallery_loader, use_gpu)
-        train(epoch,model,criterion,optimizer,train_loader,use_gpu)
-        if config['step_size']: scheduler.step()
+        train(epoch, model, criterion,optimizer,train_loader,use_gpu)
+        train_time += round(time.time() - start_train_time)
+
+        if config['step_size'] > 0: scheduler.step()
+
+        if (epoch + 1) > args.start_eval and args.eval_step > 0 and (epoch + 1) % args.eval_step == 0 or (
+                epoch + 1) == config['train_epoch']:
+            print("==> Test")
+            rank1 = test(model, query_loader, gallery_loader, use_gpu)
+            is_best = rank1 > best_rank1
+            if is_best:
+                best_rank1 = rank1
+                best_epoch = epoch + 1
+
+            if use_gpu:
+                state_dict = model.module.state_dict()
+            else:
+                state_dict = model.state_dict()
+            save_checkpoint({
+                'state_dict': state_dict,
+                'rank1': rank1,
+                'epoch': epoch,
+            }, is_best, osp.join(args.save_dir, 'checkpoint_ep' + str(epoch + 1) + '.pth.tar'))
+
+    print("==> Best Rank-1 {:.1%}, achieved at epoch {}".format(best_rank1, best_epoch))
+
+    elapsed = round(time.time() - start_time)
+    elapsed = str(datetime.timedelta(seconds=elapsed))
+    train_time = str(datetime.timedelta(seconds=train_time))
+    print("Finished. Total elapsed time (h:m:s): {}. Training time (h:m:s): {}.".format(elapsed, train_time))
 def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
     for batch_id,(imgs,pids,_) in enumerate(train_loader):
         if use_gpu:

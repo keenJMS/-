@@ -3,6 +3,8 @@ import os
 import sys
 import os.path as osp
 import errno
+import torch
+import shutil
 
 def mkdir_if_missing(directory):
     if not osp.exists(directory):
@@ -73,3 +75,9 @@ class AverageMeter(object):
         self.sum += val * n
         self.count += n
         self.avg = self.sum / self.count
+
+def save_checkpoint(state, is_best, fpath='checkpoint.pth.tar'):
+    mkdir_if_missing(osp.dirname(fpath))
+    torch.save(state, fpath)
+    if is_best:
+        shutil.copy(fpath, osp.join(osp.dirname(fpath), 'best_model.pth.tar'))

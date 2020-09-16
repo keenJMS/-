@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="add eva">
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="change sth" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +170,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600156901929</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="change sth">
+      <created>1600254032597</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600254032597</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change sth">
+      <created>1600254042364</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600254042364</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,7 +203,8 @@
     <MESSAGE value="changed" />
     <MESSAGE value="add train" />
     <MESSAGE value="add eva" />
-    <option name="LAST_COMMIT_MESSAGE" value="add eva" />
+    <MESSAGE value="change sth" />
+    <option name="LAST_COMMIT_MESSAGE" value="change sth" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1705" height="459" key="DebuggerActiveHint" timestamp="1600141390843">
@@ -246,9 +259,10 @@
       <screen x="0" y="31" width="1707" height="817" />
     </state>
     <state x="342" y="76" key="SettingsEditor/0.31.1707.817@0.31.1707.817" timestamp="1599996108803" />
-    <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600156918559">
-      <screen x="0" y="31" width="1707" height="817" />
+    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600254048152">
+      <screen x="0" y="31" width="1536" height="721" />
     </state>
+    <state x="403" y="160" key="Vcs.Push.Dialog.v2/0.31.1536.721@0.31.1536.721" timestamp="1600254048152" />
     <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1707.817@0.31.1707.817" timestamp="1600156918559" />
     <state x="644" y="357" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600157688536">
       <screen x="0" y="31" width="1707" height="817" />

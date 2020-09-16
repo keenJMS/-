@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="add eva">
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectId" id="1hP3E35MbbjbrGG00WHFOEJHV3Z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../deep-person-reid" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.train">
+    <configuration name="ResNet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/ResNet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dataset_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dataset_loader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mydataset_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/mydataset_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.mydataset_manager" />
+        <item itemvalue="Python.dataset_loader" />
+        <item itemvalue="Python.ResNet" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="" />
+      <created>1599898784179</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599898784179</updated>
+    </task>
+    <task id="LOCAL-00001" summary="changed">
+      <created>1599999762642</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599999762642</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add train">
+      <created>1600005328852</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600005328852</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add eva">
+      <created>1600156901929</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600156901929</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed" />
+    <MESSAGE value="add train" />
+    <MESSAGE value="add eva" />
+    <option name="LAST_COMMIT_MESSAGE" value="add eva" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1705" height="459" key="DebuggerActiveHint" timestamp="1600141390843">
+      <screen x="0" y="31" width="1707" height="817" />
+    </state>
+    <state width="1705" height="459" key="DebuggerActiveHint/0.31.1707.817@0.31.1707.817" timestamp="1600141390843" />
+    <state x="636" y="199" width="430" height="486" key="FileChooserDialogImpl" timestamp="1599996232492">
+      <screen x="0" y="31" width="1707" height="817" />
+    </state>
+    <state x="636" y="199" width="430" height="486" key="FileChooserDialogImpl/0.31.1707.817@0.31.1707.817" timestamp="1599996232492" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1600177791906">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600177791906" />
+    <state width="1686" height="202" key="GridCell.Tab.0.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600158668152" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1600177791905">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.31.1536.721@0.31.1536.721" timestamp="1600177791905" />
+    <state width="1686" height="202" key="GridCell.Tab.0.center/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1600177791904">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.31.1536.721@0.31.1536.721" timestamp="1600177791904" />
+    <state width="1686" height="202" key="GridCell.Tab.0.left/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1600177791906">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.31.1536.721@0.31.1536.721" timestamp="1600177791906" />
+    <state width="1686" height="202" key="GridCell.Tab.0.right/0.31.1707.817@0.31.1707.817" timestamp="1600158668151" />
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom" timestamp="1600177778753">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600177778753" />
+    <state width="1686" height="250" key="GridCell.Tab.1.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600157727508" />
+    <state width="1515" height="211" key="GridCell.Tab.1.center" timestamp="1600177778752">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.1.center/0.31.1536.721@0.31.1536.721" timestamp="1600177778752" />
+    <state width="1686" height="250" key="GridCell.Tab.1.center/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
+    <state width="1515" height="211" key="GridCell.Tab.1.left" timestamp="1600177778751">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.1.left/0.31.1536.721@0.31.1536.721" timestamp="1600177778751" />
+    <state width="1686" height="250" key="GridCell.Tab.1.left/0.31.1707.817@0.31.1707.817" timestamp="1600157727506" />
+    <state width="1515" height="211" key="GridCell.Tab.1.right" timestamp="1600177778753">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.1.right/0.31.1536.721@0.31.1536.721" timestamp="1600177778753" />
+    <state width="1686" height="250" key="GridCell.Tab.1.right/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
+    <state x="342" y="76" key="SettingsEditor" timestamp="1599996108803">
+      <screen x="0" y="31" width="1707" height="817" />
+    </state>
+    <state x="342" y="76" key="SettingsEditor/0.31.1707.817@0.31.1707.817" timestamp="1599996108803" />
+    <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600156918559">
+      <screen x="0" y="31" width="1707" height="817" />
+    </state>
+    <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1707.817@0.31.1707.817" timestamp="1600156918559" />
+    <state x="644" y="357" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600157688536">
+      <screen x="0" y="31" width="1707" height="817" />
+    </state>
+    <state x="644" y="357" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1707.817@0.31.1707.817" timestamp="1600157688536" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train.py</url>
+          <line>290</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

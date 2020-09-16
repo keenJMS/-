@@ -50,8 +50,12 @@ def main():
     else:
         print("Currently using CPU (GPU is highly recommended)")
     #logs
+    timelog='{0}_{1}{2}_{3}'.format(time.localtime(time.time()).tm_year,\
+                                time.localtime(time.time()).tm_mon, \
+                                time.localtime(time.time()).tm_mday,\
+                                time.localtime(time.time()).tm_hour)
     if not args.evaluate:
-        sys.stdout = Logger(osp.join(args.save_dir, 'log_train.txt'))
+        sys.stdout = Logger(osp.join(args.save_dir, timelog+'_log_train_{}e.txt'.format(config['train_epoch'])))
     else:
         sys.stdout = Logger(osp.join(args.save_dir, 'log_test.txt'))
     print("==========\nArgs:{}\n==========".format(args))
@@ -131,7 +135,7 @@ def main():
     #     rank1 = test(model, query_loader, gallery_loader, use_gpu)
     #     train(epoch,model,criterion,optimizer,train_loader,use_gpu)
     #     if config['step_size']: scheduler.step()
-    for epoch in range(start_epoch, args.max_epoch):
+    for epoch in range(start_epoch, config['train_epoch']):
         start_train_time = time.time()
         train(epoch, model, criterion,optimizer,train_loader,use_gpu)
         train_time += round(time.time() - start_train_time)
@@ -155,7 +159,7 @@ def main():
                 'state_dict': state_dict,
                 'rank1': rank1,
                 'epoch': epoch,
-            }, is_best, osp.join(args.save_dir, 'checkpoint_ep' + str(epoch + 1) + '.pth.tar'))
+            }, is_best, osp.join(args.save_dir, timelog+'checkpoint_ep' + str(epoch + 1) + '.pth.tar'))
 
     print("==> Best Rank-1 {:.1%}, achieved at epoch {}".format(best_rank1, best_epoch))
 
@@ -164,16 +168,31 @@ def main():
     train_time = str(datetime.timedelta(seconds=train_time))
     print("Finished. Total elapsed time (h:m:s): {}. Training time (h:m:s): {}.".format(elapsed, train_time))
 def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
-    for batch_id,(imgs,pids,_) in enumerate(train_loader):
+    losses = AverageMeter()
+    batch_time = AverageMeter()
+    data_time = AverageMeter()
+    end=time.time()
+    for batch_idx,(imgs,pids,_) in enumerate(train_loader):
         if use_gpu:
             imgs,pids=imgs.cuda(),pids.cuda()
+        data_time.update(time.time() - end)
         prediction =model(imgs)
         loss =criterion(prediction,pids)
-        print(prediction,'',pids,'',loss)
+        #print(prediction,'',pids,'',loss)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        print(epoch,batch_id,loss)
+
+        batch_time.update(time.time() - end)
+        end = time.time()
+        losses.update(loss.item(), pids.size(0))
+        if (batch_idx + 1) %1 == 0:
+            print('Epoch: [{0}][{1}/{2}]\t'
+                  'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
+                  'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
+                  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(
+                epoch + 1, batch_idx + 1, len(train_loader), batch_time=batch_time,
+                data_time=data_time, loss=losses))
     pass
 
 

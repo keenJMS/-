@@ -14,10 +14,13 @@ from torch.optim import lr_scheduler
 import argparse
 import sys
 from utils import *
+from sample import RandomIdentitySampler
+from losses import TripletLoss
 import mydataset_manager
 from dataset_loader import ImageDataset
 from ResNet import ResNet50
 import torchvision.transforms as T
+
 
 parser = argparse.ArgumentParser(description='Train image model with center loss')
 
@@ -37,7 +40,7 @@ parser.add_argument('--gpu-devices', default='0', type=str, help='gpu device ids
 args = parser.parse_args()
 def main():
     #config
-    config=get_config('/root/proj/JMSreid/config/config.yaml')
+    config=get_config('config/config.yaml')
     train_epoch=config['train_epoch']
 
     #gpu_setting
@@ -76,6 +79,7 @@ def main():
     ])
     train_loader=DataLoader(
         ImageDataset(dataset.train,transformer=transform_train),
+        sampler=None if config['loss']=={'softmax'} else RandomIdentitySampler(dataset.train,num_instances=config['num_instances']),
         batch_size=config['train_batch'],
         pin_memory=pin_memory,
         shuffle=True,
@@ -100,11 +104,12 @@ def main():
     )
     print("Initializing model: {}".format(config['arch']))
     if config['arch']=='ResNet50':
-        model = ResNet50(num_classes=dataset.train_num_pids,training=True,loss='softmax')
+        model = ResNet50(num_classes=dataset.train_num_pids,training=True,loss=config['loss'])
     print("Model size: {:.5f}M".format(sum(p.numel() for p in model.parameters())/1000000.0))
 
     #criterion
-    criterion=nn.CrossEntropyLoss()
+    criterion_class=nn.CrossEntropyLoss()
+    criterion_metric=TripletLoss(margin=config['margin'])
     optimizer=torch.optim.Adam(model.parameters(),lr=config['lr'],weight_decay=config['weight_decay'])
     if config['step_size'] > 0:
         scheduler = lr_scheduler.StepLR(optimizer, step_size=config['step_size'], gamma=config['gamma'])
@@ -137,7 +142,7 @@ def main():
     #     if config['step_size']: scheduler.step()
     for epoch in range(start_epoch, config['train_epoch']):
         start_train_time = time.time()
-        train(epoch, model, criterion,optimizer,train_loader,use_gpu)
+        train(epoch, model, criterion_class,criterion_metric,optimizer,train_loader,use_gpu)
         train_time += round(time.time() - start_train_time)
 
         if config['step_size'] > 0: scheduler.step()
@@ -167,8 +172,13 @@ def main():
     elapsed = str(datetime.timedelta(seconds=elapsed))
     train_time = str(datetime.timedelta(seconds=train_time))
     print("Finished. Total elapsed time (h:m:s): {}. Training time (h:m:s): {}.".format(elapsed, train_time))
-def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
-    losses = AverageMeter()
+def train(epoch,model,criterion_class,criterion_metric,optimizer,train_loader,use_gpu,loss_function='softmax'):
+    losses_class = AverageMeter()
+    if loss_function == 'metric' or loss_function == 'softmax,metric':
+        use_metric=True
+        losses_metric = AverageMeter()
+    else:
+        losses_metric=0
     batch_time = AverageMeter()
     data_time = AverageMeter()
     end=time.time()
@@ -176,8 +186,19 @@ def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
         if use_gpu:
             imgs,pids=imgs.cuda(),pids.cuda()
         data_time.update(time.time() - end)
-        prediction =model(imgs)
-        loss =criterion(prediction,pids)
+        if loss_function =='softmax':
+            prediction =model(imgs)
+        if loss_function =='metric':
+            features =model(imgs)
+            loss_metric = criterion_metric(features,pids)
+        if loss_function =='softmax,metric':
+            prediction,features =model(imgs)
+            loss_metric = criterion_metric(features, pids)
+        loss_class =criterion_class(prediction,pids)
+        loss =loss_class
+        if loss_function =='metric'or loss_function =='softmax,metric':
+            loss = loss+loss_metric
+
         #print(prediction,'',pids,'',loss)
         optimizer.zero_grad()
         loss.backward()
@@ -185,14 +206,17 @@ def train(epoch,model,criterion,optimizer,train_loader,use_gpu):
 
         batch_time.update(time.time() - end)
         end = time.time()
-        losses.update(loss.item(), pids.size(0))
+        losses_class.update(loss_class.item(), pids.size(0))
+        if use_metric:
+            losses_metric.update(loss_class.item(), pids.size(0))
         if (batch_idx + 1) %1 == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
-                  'Loss {loss.val:.4f} ({loss.avg:.4f})\t'.format(
+                  'Loss_class {loss_class.val:.4f} ({loss_class.avg:.4f})\t'
+                  'Loss_metric {loss_metric.val:.4f} ({loss_metric.avg:.4f})\t'.format(
                 epoch + 1, batch_idx + 1, len(train_loader), batch_time=batch_time,
-                data_time=data_time, loss=losses))
+                data_time=data_time, loss_class=losses_class,loss_metric=losses_metric))
     pass
 
 

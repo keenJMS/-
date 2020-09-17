@@ -22,15 +22,26 @@ class RandomIdentitySampler(Sampler):
         for index,(_,pid,_)in enumerate(data_source):
             self.index_dic[pid].append(index)
         self.pids=list(self.index_dic.keys())
-        self.num_instances=len(self.pids)
+        self.num_indentities=len(self.pids)
         pass
 
     def __iter__(self):
+        indices = torch.randperm(self.num_indentities)
+        ret = []
+        for i in indices:
+            pid = self.pids[i]
+            t = self.index_dic[pid]
+            replace = False if len(t) >= self.num_instances else True
+            t = np.random.choice(t, size=self.num_instances, replace=replace)
+            ret.extend(t)
+        return iter(ret)
         pass
 
     def __len__(self):
-        pass
+        return self.num_indentities*self.num_instances
 if __name__=='__main__':
     from data.mydataset_manager import Market1501
-    dataset=Market1501(root='D:\\engineer\ReIDDataset\Market')
+    dataset=Market1501(root='/root/dataset/Market')
     sampler=RandomIdentitySampler(dataset.train)
+    sampler.__iter__()
+    pass

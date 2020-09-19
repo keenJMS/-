@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="delete pdf">
+    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="complete sample.py">
+      <change afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visual/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/综述/Reid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/best_model.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/log/best_model.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ResNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/losses.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/losses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sample.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,28 +43,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../deep-person-reid" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.sample">
-    <configuration name="ResNet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="JMSreid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/ResNet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.train">
     <configuration name="dataset_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="JMSreid" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,6 +78,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/mydataset_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sample" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.sample (1)" />
+        <item itemvalue="Python.sample" />
         <item itemvalue="Python.mydataset_manager" />
         <item itemvalue="Python.dataset_loader" />
-        <item itemvalue="Python.ResNet" />
       </list>
     </recent_temporary>
   </component>
@@ -216,17 +210,54 @@
       <option name="project" value="LOCAL" />
       <updated>1600255133416</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="complete sample.py">
+      <created>1600326491041</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600326491041</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/root/proj/JMSreid/utils" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -237,9 +268,18 @@
     <MESSAGE value="add eva" />
     <MESSAGE value="change sth" />
     <MESSAGE value="delete pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete pdf" />
+    <MESSAGE value="complete sample.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete sample.py" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="467" y="223" width="597" height="341" key="#Notifications" timestamp="1600347678157">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="467" y="223" width="597" height="341" key="#Notifications/0.31.1536.721@0.31.1536.721" timestamp="1600347678157" />
+    <state x="226" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600420363302">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="226" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.31.1536.721@0.31.1536.721" timestamp="1600420363302" />
     <state width="1534" height="406" key="DebuggerActiveHint" timestamp="1600325544842">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
@@ -249,73 +289,77 @@
       <screen x="0" y="31" width="1707" height="817" />
     </state>
     <state x="636" y="199" width="430" height="486" key="FileChooserDialogImpl/0.31.1707.817@0.31.1707.817" timestamp="1599996232492" />
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1600326220941">
+    <state width="1515" height="246" key="GridCell.Tab.0.bottom" timestamp="1600487102749">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600326220941" />
+    <state width="1515" height="246" key="GridCell.Tab.0.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600487102749" />
     <state width="1686" height="202" key="GridCell.Tab.0.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600158668152" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1600326220940">
+    <state width="1515" height="246" key="GridCell.Tab.0.center" timestamp="1600487102748">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.31.1536.721@0.31.1536.721" timestamp="1600326220940" />
+    <state width="1515" height="246" key="GridCell.Tab.0.center/0.31.1536.721@0.31.1536.721" timestamp="1600487102748" />
     <state width="1686" height="202" key="GridCell.Tab.0.center/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1600326220940">
+    <state width="1515" height="246" key="GridCell.Tab.0.left" timestamp="1600487102747">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.31.1536.721@0.31.1536.721" timestamp="1600326220940" />
+    <state width="1515" height="246" key="GridCell.Tab.0.left/0.31.1536.721@0.31.1536.721" timestamp="1600487102747" />
     <state width="1686" height="202" key="GridCell.Tab.0.left/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1600326220941">
+    <state width="1515" height="246" key="GridCell.Tab.0.right" timestamp="1600487102749">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.31.1536.721@0.31.1536.721" timestamp="1600326220941" />
+    <state width="1515" height="246" key="GridCell.Tab.0.right/0.31.1536.721@0.31.1536.721" timestamp="1600487102749" />
     <state width="1686" height="202" key="GridCell.Tab.0.right/0.31.1707.817@0.31.1707.817" timestamp="1600158668151" />
-    <state width="1515" height="211" key="GridCell.Tab.1.bottom" timestamp="1600326222593">
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom" timestamp="1600417640300">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600326222593" />
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600417640300" />
     <state width="1686" height="250" key="GridCell.Tab.1.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600157727508" />
-    <state width="1515" height="211" key="GridCell.Tab.1.center" timestamp="1600326222592">
+    <state width="1515" height="211" key="GridCell.Tab.1.center" timestamp="1600417640299">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.center/0.31.1536.721@0.31.1536.721" timestamp="1600326222592" />
+    <state width="1515" height="211" key="GridCell.Tab.1.center/0.31.1536.721@0.31.1536.721" timestamp="1600417640299" />
     <state width="1686" height="250" key="GridCell.Tab.1.center/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
-    <state width="1515" height="211" key="GridCell.Tab.1.left" timestamp="1600326222591">
+    <state width="1515" height="211" key="GridCell.Tab.1.left" timestamp="1600417640298">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.left/0.31.1536.721@0.31.1536.721" timestamp="1600326222591" />
+    <state width="1515" height="211" key="GridCell.Tab.1.left/0.31.1536.721@0.31.1536.721" timestamp="1600417640298" />
     <state width="1686" height="250" key="GridCell.Tab.1.left/0.31.1707.817@0.31.1707.817" timestamp="1600157727506" />
-    <state width="1515" height="211" key="GridCell.Tab.1.right" timestamp="1600326222593">
+    <state width="1515" height="211" key="GridCell.Tab.1.right" timestamp="1600417640300">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.right/0.31.1536.721@0.31.1536.721" timestamp="1600326222593" />
+    <state width="1515" height="211" key="GridCell.Tab.1.right/0.31.1536.721@0.31.1536.721" timestamp="1600417640300" />
     <state width="1686" height="250" key="GridCell.Tab.1.right/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
+    <state x="630" y="157" width="276" height="474" key="RollbackChangesDialog" timestamp="1600347694471">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="630" y="157" width="276" height="474" key="RollbackChangesDialog/0.31.1536.721@0.31.1536.721" timestamp="1600347694471" />
     <state x="342" y="76" key="SettingsEditor" timestamp="1599996108803">
       <screen x="0" y="31" width="1707" height="817" />
     </state>
     <state x="342" y="76" key="SettingsEditor/0.31.1707.817@0.31.1707.817" timestamp="1599996108803" />
-    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600255138670">
+    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600326506449">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1536.721@0.31.1536.721" timestamp="1600255138670" />
+    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1536.721@0.31.1536.721" timestamp="1600326506449" />
     <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1707.817@0.31.1707.817" timestamp="1600156918559" />
-    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600312406207">
+    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600352693067">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1536.721@0.31.1536.721" timestamp="1600312406207" />
+    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1536.721@0.31.1536.721" timestamp="1600352693067" />
     <state x="644" y="357" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1707.817@0.31.1707.817" timestamp="1600157688536" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
-          <line>290</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/utils/sample.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sample.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/utils/losses.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

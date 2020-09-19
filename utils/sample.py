@@ -33,7 +33,7 @@ class RandomIdentitySampler(Sampler):
             t = self.index_dic[pid]
             replace = False if len(t) >= self.num_instances else True
             t = np.random.choice(t, size=self.num_instances, replace=replace)
-            ret.extend(t)
+            ret.extend(t)   #ret=[532,2990,...]
         return iter(ret)
         pass
 

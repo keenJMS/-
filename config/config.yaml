@@ -5,7 +5,7 @@ width: 128
 arch: ResNet50
 
 loss: metric #or metric or softmax,metric
-train_epoch: 60
+train_epoch: 150 #60
 train_batch: 32
 test_batch:  32
 lr: 0.0003
@@ -14,5 +14,5 @@ gamma: 0.1
 weight_decay: 0.0005
 
 #about triplet
-margin: 0.3
+margin: 0.6
 num_instances: 4

@@ -6,6 +6,7 @@ import datetime
 import argparse
 import os.path as osp
 import numpy as np
+import pprint
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -13,12 +14,14 @@ from torch.utils.data import DataLoader
 from torch.optim import lr_scheduler
 import argparse
 import sys
-from utils import *
-from sample import RandomIdentitySampler
-from losses import TripletLoss
-import mydataset_manager
-from dataset_loader import ImageDataset
-from ResNet import ResNet50
+from utils.utils import *
+from utils.losses import *
+from utils.sample import *
+
+#from sample import RandomIdentitySampler
+import data.mydataset_manager as mydataset_manager
+from data.dataset_loader import ImageDataset
+from models.ResNet import ResNet50
 import torchvision.transforms as T
 
 
@@ -31,7 +34,7 @@ parser.add_argument('--print-freq', type=int, default=10, help="print frequency"
 parser.add_argument('--seed', type=int, default=1, help="manual seed")
 parser.add_argument('--resume', type=str, default='', metavar='PATH')
 parser.add_argument('--evaluate', action='store_true', help="evaluation only")
-parser.add_argument('--eval-step', type=int, default=-1,
+parser.add_argument('--eval-step', type=int, default=10,
                     help="run evaluation for every N epochs (set to -1 to test after training)")
 parser.add_argument('--start-eval', type=int, default=0, help="start to evaluate after specific epoch")
 parser.add_argument('--save-dir', type=str, default='log')
@@ -41,7 +44,6 @@ args = parser.parse_args()
 def main():
     #config
     config=get_config('config/config.yaml')
-    train_epoch=config['train_epoch']
 
     #gpu_setting
     use_gpu=torch.cuda.is_available()
@@ -53,15 +55,17 @@ def main():
     else:
         print("Currently using CPU (GPU is highly recommended)")
     #logs
-    timelog='{0}_{1}{2}_{3}'.format(time.localtime(time.time()).tm_year,\
+    timelog='{0}_{1}{2}_{3}:{4}'.format(time.localtime(time.time()).tm_year,\
                                 time.localtime(time.time()).tm_mon, \
                                 time.localtime(time.time()).tm_mday,\
-                                time.localtime(time.time()).tm_hour)
+                                time.localtime(time.time()).tm_hour,\
+                                time.localtime(time.time()).tm_min)
     if not args.evaluate:
-        sys.stdout = Logger(osp.join(args.save_dir, timelog+'_log_train_{}e.txt'.format(config['train_epoch'])))
+        sys.stdout = Logger(osp.join(args.save_dir, config['loss'],timelog+'_log_train_{}e.txt'.format(config['train_epoch'])))
     else:
         sys.stdout = Logger(osp.join(args.save_dir, 'log_test.txt'))
-    print("==========\nArgs:{}\n==========".format(args))
+    print("--------------------------------------basic setting---------------------------------------------")
+    pprint.pprint([config, args.__dict__])
 
     #dataset 3 loader
     dataset=mydataset_manager.Market1501(root=config['dataset_root'])
@@ -79,10 +83,10 @@ def main():
     ])
     train_loader=DataLoader(
         ImageDataset(dataset.train,transformer=transform_train),
-        sampler=None if config['loss']=={'softmax'} else RandomIdentitySampler(dataset.train,num_instances=config['num_instances']),
+        sampler=None if config['loss']=='softmax' else RandomIdentitySampler(dataset.train,num_instances=config['num_instances']),
         batch_size=config['train_batch'],
         pin_memory=pin_memory,
-        shuffle=True,
+        shuffle=True if config['loss']=='softmax' else False,
         num_workers=config['workers'],
         drop_last=True
     )
@@ -142,7 +146,7 @@ def main():
     #     if config['step_size']: scheduler.step()
     for epoch in range(start_epoch, config['train_epoch']):
         start_train_time = time.time()
-        train(epoch, model, criterion_class,criterion_metric,optimizer,train_loader,use_gpu)
+        train(epoch, model, criterion_class,criterion_metric,optimizer,train_loader,use_gpu,loss_function=config['loss'])
         train_time += round(time.time() - start_train_time)
 
         if config['step_size'] > 0: scheduler.step()
@@ -164,7 +168,7 @@ def main():
                 'state_dict': state_dict,
                 'rank1': rank1,
                 'epoch': epoch,
-            }, is_best, osp.join(args.save_dir, timelog+'checkpoint_ep' + str(epoch + 1) + '.pth.tar'))
+            }, is_best, osp.join(args.save_dir,config['loss'], timelog+'checkpoint_ep' + str(epoch + 1) + '.pth.tar'))
 
     print("==> Best Rank-1 {:.1%}, achieved at epoch {}".format(best_rank1, best_epoch))
 
@@ -173,50 +177,67 @@ def main():
     train_time = str(datetime.timedelta(seconds=train_time))
     print("Finished. Total elapsed time (h:m:s): {}. Training time (h:m:s): {}.".format(elapsed, train_time))
 def train(epoch,model,criterion_class,criterion_metric,optimizer,train_loader,use_gpu,loss_function='softmax'):
+    """
+    class means classfication loss
+    metric means triplet loss
+
+    """
     losses_class = AverageMeter()
-    if loss_function == 'metric' or loss_function == 'softmax,metric':
-        use_metric=True
-        losses_metric = AverageMeter()
-    else:
-        losses_metric=0
+    losses_metric = AverageMeter()
+    losses_total = AverageMeter()
+    losses_class.update(0, 1)
+    losses_metric.update(0, 1)
+    use_metric=False
+    use_class=False
+
     batch_time = AverageMeter()
     data_time = AverageMeter()
     end=time.time()
+    model.train()
     for batch_idx,(imgs,pids,_) in enumerate(train_loader):
         if use_gpu:
             imgs,pids=imgs.cuda(),pids.cuda()
         data_time.update(time.time() - end)
         if loss_function =='softmax':
+            use_class = True
             prediction =model(imgs)
+            loss_class = criterion_class(prediction, pids)
+            loss_total = loss_class
         if loss_function =='metric':
+            use_metric = True
             features =model(imgs)
             loss_metric = criterion_metric(features,pids)
+            loss_total = loss_metric
         if loss_function =='softmax,metric':
-            prediction,features =model(imgs)
+            use_class = True
+            use_metric = True
+            prediction, features =model(imgs)
             loss_metric = criterion_metric(features, pids)
-        loss_class =criterion_class(prediction,pids)
-        loss =loss_class
-        if loss_function =='metric'or loss_function =='softmax,metric':
-            loss = loss+loss_metric
+            loss_class = criterion_class(prediction, pids)
+            loss_total = loss_class + loss_metric
+
 
         #print(prediction,'',pids,'',loss)
         optimizer.zero_grad()
-        loss.backward()
+        loss_total.backward()
         optimizer.step()
 
         batch_time.update(time.time() - end)
         end = time.time()
-        losses_class.update(loss_class.item(), pids.size(0))
+        losses_total.update(loss_total.item(), pids.size(0))
         if use_metric:
-            losses_metric.update(loss_class.item(), pids.size(0))
-        if (batch_idx + 1) %1 == 0:
+            losses_metric.update(loss_metric.item(), pids.size(0))
+        if use_class:
+            losses_class.update(loss_class.item(), pids.size(0))
+        if (batch_idx + 1) %10== 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
                   'Loss_class {loss_class.val:.4f} ({loss_class.avg:.4f})\t'
-                  'Loss_metric {loss_metric.val:.4f} ({loss_metric.avg:.4f})\t'.format(
+                  'Loss_metric {loss_metric.val:.4f} ({loss_metric.avg:.4f})\t'
+                  'Total_loss {losses_total.val:.4f} ({losses_total.avg:.4f})\t'.format(
                 epoch + 1, batch_idx + 1, len(train_loader), batch_time=batch_time,
-                data_time=data_time, loss_class=losses_class,loss_metric=losses_metric))
+                data_time=data_time, loss_class=losses_class,loss_metric=losses_metric,losses_total=losses_total))
     pass
 
 

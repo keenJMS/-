@@ -26,7 +26,7 @@ class ResNet50(nn.Module):
             return f
         if self.loss=='softmax,metric':
             y = self.classfier(f)
-            return y,f
+            return y, f
         else:
             raise RuntimeError('LOSS SETTING ERROR')
 

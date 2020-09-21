@@ -112,7 +112,8 @@ def main():
     print("Model size: {:.5f}M".format(sum(p.numel() for p in model.parameters())/1000000.0))
 
     #criterion
-    criterion_class=nn.CrossEntropyLoss()
+    #criterion_class=nn.CrossEntropyLoss()
+    criterion_class=CrossEntropyLabelSmooth(num_classes=751)
     criterion_metric=TripletLoss(margin=config['margin'])
     optimizer=torch.optim.Adam(model.parameters(),lr=config['lr'],weight_decay=config['weight_decay'])
     if config['step_size'] > 0:

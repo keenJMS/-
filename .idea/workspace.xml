@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="combine triplet+softmax">
+    <list default="true" id="0b7276d1-b1d0-4068-8387-f4593900a973" name="Default Changelist" comment="update a lot">
+      <change afterPath="$PROJECT_DIR$/transforms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/JMSreid.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JMSreid.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_14_20__12_02_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_14_20__12_02_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_14_20,_12_02_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_14_20__12_02_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/best_model.pth.tar" beforeDir="false" afterPath="$PROJECT_DIR$/log/best_model.pth.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ResNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/losses.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/losses.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,28 +43,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../deep-person-reid" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.sample">
-    <configuration name="ResNet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="JMSreid" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/ResNet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.train">
     <configuration name="dataset_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="JMSreid" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,6 +56,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dataset_loader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -106,7 +78,30 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/mydataset_manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JMSreid" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -127,6 +122,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -148,6 +144,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -159,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sample" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.sample (1)" />
+        <item itemvalue="Python.sample" />
         <item itemvalue="Python.mydataset_manager" />
         <item itemvalue="Python.dataset_loader" />
-        <item itemvalue="Python.ResNet" />
       </list>
     </recent_temporary>
   </component>
@@ -218,17 +215,61 @@
       <option name="project" value="LOCAL" />
       <updated>1600255133416</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="complete sample.py">
+      <created>1600326491041</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600326491041</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update a lot">
+      <created>1600487621955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600487621955</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/root/proj/JMSreid/utils" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -239,9 +280,23 @@
     <MESSAGE value="add eva" />
     <MESSAGE value="change sth" />
     <MESSAGE value="delete pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete pdf" />
+    <MESSAGE value="complete sample.py" />
+    <MESSAGE value="update a lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="update a lot" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="467" y="223" width="597" height="341" key="#Notifications" timestamp="1600347678157">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="467" y="223" width="597" height="341" key="#Notifications/0.31.1536.721@0.31.1536.721" timestamp="1600347678157" />
+    <state x="226" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600420363302">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="226" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.31.1536.721@0.31.1536.721" timestamp="1600420363302" />
+    <state x="375" y="196" width="781" height="395" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600517554349">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="375" y="196" width="781" height="395" key="#com.intellij.fileTypes.FileTypeChooser/0.31.1536.721@0.31.1536.721" timestamp="1600517554349" />
     <state width="1534" height="406" key="DebuggerActiveHint" timestamp="1600325544842">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
@@ -251,73 +306,72 @@
       <screen x="0" y="31" width="1707" height="817" />
     </state>
     <state x="636" y="199" width="430" height="486" key="FileChooserDialogImpl/0.31.1707.817@0.31.1707.817" timestamp="1599996232492" />
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1600326220941">
+    <state width="1515" height="188" key="GridCell.Tab.0.bottom" timestamp="1600857117880">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600326220941" />
+    <state width="1515" height="188" key="GridCell.Tab.0.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600857117880" />
     <state width="1686" height="202" key="GridCell.Tab.0.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600158668152" />
-    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1600326220940">
+    <state width="1515" height="188" key="GridCell.Tab.0.center" timestamp="1600857117879">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.center/0.31.1536.721@0.31.1536.721" timestamp="1600326220940" />
+    <state width="1515" height="188" key="GridCell.Tab.0.center/0.31.1536.721@0.31.1536.721" timestamp="1600857117879" />
     <state width="1686" height="202" key="GridCell.Tab.0.center/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
-    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1600326220940">
+    <state width="1515" height="188" key="GridCell.Tab.0.left" timestamp="1600857117879">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.left/0.31.1536.721@0.31.1536.721" timestamp="1600326220940" />
+    <state width="1515" height="188" key="GridCell.Tab.0.left/0.31.1536.721@0.31.1536.721" timestamp="1600857117879" />
     <state width="1686" height="202" key="GridCell.Tab.0.left/0.31.1707.817@0.31.1707.817" timestamp="1600158668150" />
-    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1600326220941">
+    <state width="1515" height="188" key="GridCell.Tab.0.right" timestamp="1600857117880">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.0.right/0.31.1536.721@0.31.1536.721" timestamp="1600326220941" />
+    <state width="1515" height="188" key="GridCell.Tab.0.right/0.31.1536.721@0.31.1536.721" timestamp="1600857117880" />
     <state width="1686" height="202" key="GridCell.Tab.0.right/0.31.1707.817@0.31.1707.817" timestamp="1600158668151" />
-    <state width="1515" height="211" key="GridCell.Tab.1.bottom" timestamp="1600326222593">
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom" timestamp="1600857117873">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600326222593" />
+    <state width="1515" height="211" key="GridCell.Tab.1.bottom/0.31.1536.721@0.31.1536.721" timestamp="1600857117873" />
     <state width="1686" height="250" key="GridCell.Tab.1.bottom/0.31.1707.817@0.31.1707.817" timestamp="1600157727508" />
-    <state width="1515" height="211" key="GridCell.Tab.1.center" timestamp="1600326222592">
+    <state width="1515" height="211" key="GridCell.Tab.1.center" timestamp="1600857117872">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.center/0.31.1536.721@0.31.1536.721" timestamp="1600326222592" />
+    <state width="1515" height="211" key="GridCell.Tab.1.center/0.31.1536.721@0.31.1536.721" timestamp="1600857117872" />
     <state width="1686" height="250" key="GridCell.Tab.1.center/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
-    <state width="1515" height="211" key="GridCell.Tab.1.left" timestamp="1600326222591">
+    <state width="1515" height="211" key="GridCell.Tab.1.left" timestamp="1600857117872">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.left/0.31.1536.721@0.31.1536.721" timestamp="1600326222591" />
+    <state width="1515" height="211" key="GridCell.Tab.1.left/0.31.1536.721@0.31.1536.721" timestamp="1600857117872" />
     <state width="1686" height="250" key="GridCell.Tab.1.left/0.31.1707.817@0.31.1707.817" timestamp="1600157727506" />
-    <state width="1515" height="211" key="GridCell.Tab.1.right" timestamp="1600326222593">
+    <state width="1515" height="211" key="GridCell.Tab.1.right" timestamp="1600857117873">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state width="1515" height="211" key="GridCell.Tab.1.right/0.31.1536.721@0.31.1536.721" timestamp="1600326222593" />
+    <state width="1515" height="211" key="GridCell.Tab.1.right/0.31.1536.721@0.31.1536.721" timestamp="1600857117873" />
     <state width="1686" height="250" key="GridCell.Tab.1.right/0.31.1707.817@0.31.1707.817" timestamp="1600157727507" />
+    <state x="630" y="157" width="276" height="474" key="RollbackChangesDialog" timestamp="1600347694471">
+      <screen x="0" y="31" width="1536" height="721" />
+    </state>
+    <state x="630" y="157" width="276" height="474" key="RollbackChangesDialog/0.31.1536.721@0.31.1536.721" timestamp="1600347694471" />
     <state x="342" y="76" key="SettingsEditor" timestamp="1599996108803">
       <screen x="0" y="31" width="1707" height="817" />
     </state>
     <state x="342" y="76" key="SettingsEditor/0.31.1707.817@0.31.1707.817" timestamp="1599996108803" />
-    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600255138670">
+    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1600487631636">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1536.721@0.31.1536.721" timestamp="1600255138670" />
+    <state x="403" y="160" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1536.721@0.31.1536.721" timestamp="1600487631636" />
     <state x="448" y="177" width="806" height="530" key="Vcs.Push.Dialog.v2/0.31.1707.817@0.31.1707.817" timestamp="1600156918559" />
-    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600312406207">
+    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600352693067">
       <screen x="0" y="31" width="1536" height="721" />
     </state>
-    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1536.721@0.31.1536.721" timestamp="1600312406207" />
+    <state x="579" y="319" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1536.721@0.31.1536.721" timestamp="1600352693067" />
     <state x="644" y="357" width="419" height="170" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1707.817@0.31.1707.817" timestamp="1600157688536" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
-          <line>290</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sample.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/utils/sample.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

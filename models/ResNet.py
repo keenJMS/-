@@ -4,14 +4,15 @@ from torch.nn import functional as F
 import torch
 
 class ResNet50(nn.Module):
-    def __init__(self,num_classes,loss='softmax',training=False,**kwargs):
+    def __init__(self,num_classes,loss='softmax',**kwargs):
         super(ResNet50,self).__init__()
         resnet50=torchvision.models.resnet50(pretrained=True)
         self.loss=loss
         self.base=nn.Sequential(*list(resnet50.children())[:-2])
+        print("resnet50 us {}".format(loss))
         if not self.loss=='metric':
             self.classfier=nn.Linear(2048,num_classes)
-        self.training=training
+
         pass
     def forward(self,x):
         x= self.base(x) #32*2048*8*4
@@ -21,6 +22,7 @@ class ResNet50(nn.Module):
             return f
         if self.loss=='softmax':
             y=self.classfier(f)
+
             return y
         if self.loss=='metric':
             return f

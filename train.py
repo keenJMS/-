@@ -7,6 +7,7 @@ import argparse
 import os.path as osp
 import numpy as np
 import pprint
+
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -22,7 +23,8 @@ from utils.sample import *
 import data.mydataset_manager as mydataset_manager
 from data.dataset_loader import ImageDataset
 from models.ResNet import ResNet50
-import torchvision.transforms as T
+#import torchvision.transforms as T
+import transforms as T
 
 
 parser = argparse.ArgumentParser(description='Train image model with center loss')
@@ -70,14 +72,15 @@ def main():
     #dataset 3 loader
     dataset=mydataset_manager.Market1501(root=config['dataset_root'])
     transform_train = T.Compose([
-        T.Resize((config['height'], config['width']),interpolation=3),
+        #T.Resize((config['height'], config['width']),interpolation=3),
+        T.Random2DTranslation(config['height'], config['width']),
         T.RandomHorizontalFlip(),
         T.ToTensor(),
         T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
 
     transform_test = T.Compose([
-        T.Resize((config['height'], config['width']),interpolation=3),
+        T.Resize((config['height'], config['width'])),#interpolation=3),
         T.ToTensor(),
         T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
@@ -108,7 +111,7 @@ def main():
     )
     print("Initializing model: {}".format(config['arch']))
     if config['arch']=='ResNet50':
-        model = ResNet50(num_classes=dataset.train_num_pids,training=True,loss=config['loss'])
+        model = ResNet50(num_classes=dataset.train_num_pids,loss=config['loss'])
     print("Model size: {:.5f}M".format(sum(p.numel() for p in model.parameters())/1000000.0))
 
     #criterion
@@ -127,7 +130,8 @@ def main():
         start_epoch = checkpoint['epoch']
 
     if use_gpu:
-        model = nn.DataParallel(model).cuda()
+        #devices=torch.device("cuda:0,1")
+        model = nn.DataParallel(model,device_ids=[0]).cuda()
 
     if args.evaluate:
         print("Evaluate only")
@@ -196,12 +200,22 @@ def train(epoch,model,criterion_class,criterion_metric,optimizer,train_loader,us
     end=time.time()
     model.train()
     for batch_idx,(imgs,pids,_) in enumerate(train_loader):
+        # print(pids)
+        # plt.figure(12)
+        # plt.subplot(121)
+        # plt.imshow(imgs[0].permute([1,2,0]))
+        # plt.subplot(122)
+        # plt.imshow(imgs[1].permute([1,2,0]))
+        # plt.show()
+
         if use_gpu:
             imgs,pids=imgs.cuda(),pids.cuda()
+
         data_time.update(time.time() - end)
         if loss_function =='softmax':
             use_class = True
             prediction =model(imgs)
+            #print(prediction.shape)
             loss_class = criterion_class(prediction, pids)
             loss_total = loss_class
         if loss_function =='metric':
